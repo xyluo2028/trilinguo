@@ -1,0 +1,557 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "0.1.0"
+    },
+    "id": {
+      "type": "string",
+      "maxLength": 100,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "status": {
+      "type": "string",
+      "const": "draft"
+    },
+    "title": {
+      "type": "object",
+      "properties": {
+        "en": {
+          "type": "string",
+          "minLength": 1
+        },
+        "zh": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "en",
+        "zh"
+      ],
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewStatus": {
+          "type": "string",
+          "const": "needs-human-review"
+        }
+      },
+      "required": [
+        "origin",
+        "reviewStatus"
+      ],
+      "additionalProperties": false
+    },
+    "lessons": {
+      "minItems": 1,
+      "maxItems": 20,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "maxLength": 100,
+            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "ja"
+            ]
+          },
+          "audience": {
+            "type": "string",
+            "enum": [
+              "adult",
+              "child"
+            ]
+          },
+          "level": {
+            "type": "string",
+            "const": "pre-A1"
+          },
+          "title": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zh": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "en",
+              "zh"
+            ],
+            "additionalProperties": false
+          },
+          "objective": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zh": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "en",
+              "zh"
+            ],
+            "additionalProperties": false
+          },
+          "scenario": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zh": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "en",
+              "zh"
+            ],
+            "additionalProperties": false
+          },
+          "picture": {
+            "type": "string",
+            "enum": [
+              "water",
+              "milk",
+              "tea"
+            ]
+          },
+          "pattern": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reading": {
+                "type": "string"
+              },
+              "meaning": {
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "zh": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "en",
+                  "zh"
+                ],
+                "additionalProperties": false
+              },
+              "rule": {
+                "type": "object",
+                "properties": {
+                  "en": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "zh": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "en",
+                  "zh"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "text",
+              "meaning",
+              "rule"
+            ],
+            "additionalProperties": false
+          },
+          "caregiverGuidance": {
+            "type": "object",
+            "properties": {
+              "en": {
+                "type": "string",
+                "minLength": 1
+              },
+              "zh": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "en",
+              "zh"
+            ],
+            "additionalProperties": false
+          },
+          "audio": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "const": "device-speech"
+              },
+              "reviewStatus": {
+                "type": "string",
+                "const": "unreviewed"
+              }
+            },
+            "required": [
+              "source",
+              "reviewStatus"
+            ],
+            "additionalProperties": false
+          },
+          "exercises": {
+            "minItems": 1,
+            "maxItems": 20,
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                    },
+                    "skillId": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                    },
+                    "prompt": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "phrase": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reading": {
+                      "type": "string"
+                    },
+                    "hint": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "explanation": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "choice"
+                    },
+                    "options": {
+                      "minItems": 2,
+                      "maxItems": 4,
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "maxLength": 100,
+                            "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                          },
+                          "label": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "zh": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "en",
+                              "zh"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "picture": {
+                            "type": "string",
+                            "enum": [
+                              "water",
+                              "milk",
+                              "tea"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "label",
+                          "picture"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "acceptedOptionId": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "skillId",
+                    "prompt",
+                    "phrase",
+                    "hint",
+                    "explanation",
+                    "type",
+                    "options",
+                    "acceptedOptionId"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                    },
+                    "skillId": {
+                      "type": "string",
+                      "maxLength": 100,
+                      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+                    },
+                    "prompt": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "phrase": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "reading": {
+                      "type": "string"
+                    },
+                    "hint": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "explanation": {
+                      "type": "object",
+                      "properties": {
+                        "en": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "zh": {
+                          "type": "string",
+                          "minLength": 1
+                        }
+                      },
+                      "required": [
+                        "en",
+                        "zh"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "type": {
+                      "type": "string",
+                      "const": "text"
+                    },
+                    "acceptedAnswers": {
+                      "minItems": 1,
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "knownErrors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "answer": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "feedback": {
+                            "type": "object",
+                            "properties": {
+                              "en": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "zh": {
+                                "type": "string",
+                                "minLength": 1
+                              }
+                            },
+                            "required": [
+                              "en",
+                              "zh"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "answer",
+                          "feedback"
+                        ],
+                        "additionalProperties": false
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "skillId",
+                    "prompt",
+                    "phrase",
+                    "hint",
+                    "explanation",
+                    "type",
+                    "acceptedAnswers",
+                    "knownErrors"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        },
+        "required": [
+          "id",
+          "language",
+          "audience",
+          "level",
+          "title",
+          "objective",
+          "scenario",
+          "picture",
+          "pattern",
+          "audio",
+          "exercises"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "revision",
+    "status",
+    "title",
+    "provenance",
+    "lessons"
+  ],
+  "additionalProperties": false
+}

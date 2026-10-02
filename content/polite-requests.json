@@ -1,0 +1,515 @@
+{
+  "schemaVersion": "0.1.0",
+  "id": "family-polite-requests",
+  "revision": 1,
+  "status": "draft",
+  "title": {
+    "en": "Ask for a drink politely",
+    "zh": "礼貌地要饮料"
+  },
+  "provenance": {
+    "origin": "Original sample lessons drafted for the family prototype; not yet reviewed by a language educator.",
+    "reviewStatus": "needs-human-review"
+  },
+  "lessons": [
+    {
+      "id": "en-polite-requests-adult",
+      "language": "en",
+      "audience": "adult",
+      "level": "pre-A1",
+      "title": {
+        "en": "A little water, please",
+        "zh": "礼貌地要一杯水"
+      },
+      "objective": {
+        "en": "Ask for a drink politely at a café.",
+        "zh": "在咖啡馆礼貌地要一杯饮料。"
+      },
+      "scenario": {
+        "en": "You have found a quiet café. Ask for something to drink.",
+        "zh": "你来到一家安静的咖啡馆，想要一杯饮料。"
+      },
+      "picture": "water",
+      "audio": {
+        "source": "device-speech",
+        "reviewStatus": "unreviewed"
+      },
+      "pattern": {
+        "text": "Can I have some water, please?",
+        "meaning": {
+          "en": "A polite way to ask for water.",
+          "zh": "一种礼貌地要水的说法。"
+        },
+        "rule": {
+          "en": "Use “Can I have some …, please?” to ask for a drink. Learn it as a useful phrase; “some” works with water, milk, and tea here.",
+          "zh": "用“Can I have some …, please?”来要饮料。先把它当作实用句型来学；这里的 water、milk、tea 可以与 some 搭配。"
+        }
+      },
+      "exercises": [
+        {
+          "id": "en-requests-water",
+          "skillId": "en.request.can-i-have",
+          "type": "choice",
+          "prompt": {
+            "en": "Listen or read. Which drink is being requested?",
+            "zh": "听一听或读一读：说话的人想要哪种饮料？"
+          },
+          "phrase": "Can I have some water, please?",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "water",
+          "hint": {
+            "en": "“Water” means 水.",
+            "zh": "water 是“水”。"
+          },
+          "explanation": {
+            "en": "“Can I have some water, please?” is a polite request for water.",
+            "zh": "“Can I have some water, please?” 是礼貌地要水。"
+          }
+        },
+        {
+          "id": "en-requests-milk",
+          "skillId": "en.request.can-i-have",
+          "type": "choice",
+          "prompt": {
+            "en": "A new drink, the same pattern. What does the speaker want?",
+            "zh": "换一种饮料，句型不变。说话的人想要什么？"
+          },
+          "phrase": "Can I have some milk, please?",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "milk",
+          "hint": {
+            "en": "“Milk” means 牛奶.",
+            "zh": "milk 是“牛奶”。"
+          },
+          "explanation": {
+            "en": "Replace water with milk. The request pattern stays the same.",
+            "zh": "把 water 换成 milk，请求句型不变。"
+          }
+        },
+        {
+          "id": "en-requests-tea",
+          "skillId": "en.request.can-i-have",
+          "type": "text",
+          "prompt": {
+            "en": "Now ask for some tea politely. Type one sentence.",
+            "zh": "现在试着礼貌地要茶。输入一句话。"
+          },
+          "phrase": "Can I have some tea, please?",
+          "hint": {
+            "en": "Start with “Can I have …” and finish with “please”.",
+            "zh": "用“Can I have …”开头，加上“please”。"
+          },
+          "explanation": {
+            "en": "You used a polite request in a new situation.",
+            "zh": "你把礼貌请求句型用在了新情境中。"
+          },
+          "acceptedAnswers": [
+            "Can I have some tea, please?",
+            "Could I have some tea, please?",
+            "May I have some tea, please?"
+          ],
+          "knownErrors": [
+            {
+              "answer": "Can I has some tea please",
+              "feedback": {
+                "en": "After “Can I”, use the base verb “have”. Try “Can I have some tea, please?”",
+                "zh": "Can I 后用动词原形 have。试试“Can I have some tea, please?”。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ja-polite-requests-adult",
+      "language": "ja",
+      "audience": "adult",
+      "level": "pre-A1",
+      "title": {
+        "en": "Water, please",
+        "zh": "请给我水"
+      },
+      "objective": {
+        "en": "Ask for a drink with “〜をください”.",
+        "zh": "用“〜をください”来要饮料。"
+      },
+      "scenario": {
+        "en": "You are at a café in Japan. Start with a simple, polite request.",
+        "zh": "你在日本的咖啡馆，用简单、礼貌的说法要饮料。"
+      },
+      "picture": "water",
+      "audio": {
+        "source": "device-speech",
+        "reviewStatus": "unreviewed"
+      },
+      "pattern": {
+        "text": "お水をください。",
+        "reading": "おみずを ください · omizu o kudasai",
+        "meaning": {
+          "en": "Water, please.",
+          "zh": "请给我水。"
+        },
+        "rule": {
+          "en": "Put the thing you want before “をください”. Here, を is pronounced “o”. This pattern asks someone to give you an item.",
+          "zh": "把想要的东西放在“をください”前面。这里的 を 读作“o”。这个句型用于请别人给你某样东西。"
+        }
+      },
+      "exercises": [
+        {
+          "id": "ja-requests-water",
+          "skillId": "ja.request.kudasai",
+          "type": "choice",
+          "prompt": {
+            "en": "Listen or read. Which drink is being requested?",
+            "zh": "听一听或读一读：想要的是哪种饮料？"
+          },
+          "phrase": "お水をください。",
+          "reading": "おみずを ください",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "water",
+          "hint": {
+            "en": "お水（おみず） means water.",
+            "zh": "お水（おみず）是“水”。"
+          },
+          "explanation": {
+            "en": "お水をください asks for water politely.",
+            "zh": "お水をください 是礼貌地要水。"
+          }
+        },
+        {
+          "id": "ja-requests-milk",
+          "skillId": "ja.request.kudasai",
+          "type": "choice",
+          "prompt": {
+            "en": "The speaker asks for another drink. Which one?",
+            "zh": "换了一种饮料。说话的人想要什么？"
+          },
+          "phrase": "牛乳をください。",
+          "reading": "ぎゅうにゅうを ください",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "milk",
+          "hint": {
+            "en": "牛乳（ぎゅうにゅう） means milk.",
+            "zh": "牛乳（ぎゅうにゅう）是“牛奶”。"
+          },
+          "explanation": {
+            "en": "牛乳をください means “Milk, please.” The same request pattern works.",
+            "zh": "牛乳をください 是“请给我牛奶”。请求句型不变。"
+          }
+        },
+        {
+          "id": "ja-requests-tea",
+          "skillId": "ja.request.kudasai",
+          "type": "text",
+          "prompt": {
+            "en": "Ask for tea using “〜をください”. Type in Japanese.",
+            "zh": "用“〜をください”要茶。请用日语输入。"
+          },
+          "phrase": "お茶をください。",
+          "reading": "おちゃを ください",
+          "hint": {
+            "en": "Tea is お茶（おちゃ）. Add をください.",
+            "zh": "茶是 お茶（おちゃ）。后面加上 をください。"
+          },
+          "explanation": {
+            "en": "お茶をください means “Tea, please.”",
+            "zh": "お茶をください 是“请给我茶”。"
+          },
+          "acceptedAnswers": [
+            "お茶をください。",
+            "お茶を下さい。",
+            "お茶ください。"
+          ],
+          "knownErrors": [
+            {
+              "answer": "お茶がください",
+              "feedback": {
+                "en": "For this request pattern, put を before ください: お茶をください。",
+                "zh": "这个请求句型在 ください 前用 を：お茶をください。"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ja-polite-requests-child",
+      "language": "ja",
+      "audience": "child",
+      "level": "pre-A1",
+      "title": {
+        "en": "A drink at snack time",
+        "zh": "点心时间：请给我水"
+      },
+      "objective": {
+        "en": "Together with an adult, hear a short Japanese request and choose its picture.",
+        "zh": "和大人一起，听一句简短的日语请求，再点选相应图片。"
+      },
+      "scenario": {
+        "en": "It is snack time. Your teddy would like a drink.",
+        "zh": "点心时间到了，小熊想喝点东西。"
+      },
+      "picture": "water",
+      "audio": {
+        "source": "device-speech",
+        "reviewStatus": "unreviewed"
+      },
+      "caregiverGuidance": {
+        "en": "For a five-year-old Chinese-speaking beginner. Explain the task aloud in Chinese, play the Japanese phrase, and help your child choose a picture. Reading and typing are not required. Repeating aloud is optional and is not graded. These attempts record assisted practice.",
+        "zh": "适合母语为中文的五岁日语初学者。请用中文说清任务，播放日语，再帮助孩子点选图片。不要求识字或打字；可以自愿跟读，但不评分。这些回答记录为有帮助的练习。"
+      },
+      "pattern": {
+        "text": "お水をください。",
+        "reading": "おみずを ください",
+        "meaning": {
+          "en": "Water, please.",
+          "zh": "请给我水。"
+        },
+        "rule": {
+          "en": "Tell your child: “This is how teddy asks for water in Japanese.” There is no need to explain grammar yet.",
+          "zh": "对孩子说：“小熊用这句话来要水。”现在不用讲解语法。"
+        }
+      },
+      "exercises": [
+        {
+          "id": "ja-child-water-first",
+          "skillId": "ja.request.kudasai",
+          "type": "choice",
+          "prompt": {
+            "en": "Listen together. Tap the drink teddy wants.",
+            "zh": "一起听一听，点选小熊想喝的东西。"
+          },
+          "phrase": "お水をください。",
+          "reading": "おみずを ください",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "water",
+          "hint": {
+            "en": "An adult can say: “小熊想喝水。找找水在哪儿？”",
+            "zh": "大人可以说：“小熊想喝水。找找水在哪儿？”"
+          },
+          "explanation": {
+            "en": "Teddy asked for water: お水をください。",
+            "zh": "小熊想要水：お水をください。"
+          }
+        },
+        {
+          "id": "ja-child-milk",
+          "skillId": "ja.request.kudasai",
+          "type": "choice",
+          "prompt": {
+            "en": "Listen again. What would teddy like now?",
+            "zh": "再听一听，这次小熊想喝什么？"
+          },
+          "phrase": "牛乳をください。",
+          "reading": "ぎゅうにゅうを ください",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "milk",
+          "hint": {
+            "en": "An adult can say: “这次是牛奶，找找牛奶的图片。”",
+            "zh": "大人可以说：“这次是牛奶，找找牛奶的图片。”"
+          },
+          "explanation": {
+            "en": "Teddy asked for milk: 牛乳をください。",
+            "zh": "小熊想要牛奶：牛乳をください。"
+          }
+        },
+        {
+          "id": "ja-child-water-again",
+          "skillId": "ja.request.kudasai",
+          "type": "choice",
+          "prompt": {
+            "en": "One more turn. Listen and choose a drink.",
+            "zh": "再玩一次。听一听，选一选。"
+          },
+          "phrase": "お水をください。",
+          "reading": "おみずを ください",
+          "options": [
+            {
+              "id": "water",
+              "picture": "water",
+              "label": {
+                "en": "Water",
+                "zh": "水"
+              }
+            },
+            {
+              "id": "milk",
+              "picture": "milk",
+              "label": {
+                "en": "Milk",
+                "zh": "牛奶"
+              }
+            },
+            {
+              "id": "tea",
+              "picture": "tea",
+              "label": {
+                "en": "Tea",
+                "zh": "茶"
+              }
+            }
+          ],
+          "acceptedOptionId": "water",
+          "hint": {
+            "en": "Replay the phrase. You can help your child choose.",
+            "zh": "可以再播放一次，也可以帮助孩子选择。"
+          },
+          "explanation": {
+            "en": "You practised asking for water together. Try it again at another snack time.",
+            "zh": "你们一起练习了要水的说法。下次吃点心时再试试。"
+          }
+        }
+      ]
+    }
+  ]
+}

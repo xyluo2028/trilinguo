@@ -1,0 +1,58 @@
+import { expect, test } from '@playwright/test';
+
+test('recovered Explore and notebook screens retain both target languages', async ({ page }) => {
+  const response = await page.request.post('/api/profiles', { data: { name: 'Recovery reader', presentation: 'adult', explanationLanguage: 'en' } });
+  expect(response.status()).toBe(201);
+  const profile = await response.json();
+  await page.addInitScript(id => localStorage.setItem('trilinguo.learner', id), profile.id);
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Explore', exact: false }).first().click();
+  await expect(page.getByRole('heading', { name: /Small conversations/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Start lesson' }).first().click();
+  await expect(page.getByRole('heading', { name: 'A little water, please' })).toBeVisible();
+  await page.getByRole('button', { name: 'Let’s practise' }).click();
+  await expect(page.getByRole('radio')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Back to Today', exact: false }).click();
+  await page.getByRole('button', { name: 'Japanese', exact: true }).click();
+  await page.getByRole('button', { name: 'Start lesson' }).first().click();
+  await page.getByRole('button', { name: 'Let’s practise' }).click();
+  await expect(page.getByRole('radio')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Back to Today', exact: false }).click();
+  await page.getByRole('button', { name: 'My notebook' }).click();
+  await expect(page.getByRole('heading', { name: 'Can I have some water, please?' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'お水をください。', exact: true })).toBeVisible();
+  await page.reload();
+  await page.getByRole('button', { name: 'My notebook' }).click();
+  await expect(page.locator('.notebook-entry')).toHaveCount(2);
+});
+
+test('recovered learner creation applies Chinese child defaults and separates notebooks', async ({ page }) => {
+  const response = await page.request.post('/api/profiles', { data: { name: 'Recovery caregiver', presentation: 'adult', explanationLanguage: 'en' } });
+  expect(response.status()).toBe(201);
+  const profile = await response.json();
+  await page.addInitScript(id => localStorage.setItem('trilinguo.learner', id), profile.id);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  if (process.env.TRILINGUO_RECOVERY_SCREENSHOTS) await page.screenshot({ path: `${process.env.TRILINGUO_RECOVERY_SCREENSHOTS}/adult-phone.png`, fullPage: true });
+  await page.getByRole('button', { name: 'Start lesson' }).first().click();
+  await page.getByRole('button', { name: 'Let’s practise' }).click();
+  await expect(page.getByRole('radio')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Back to Today', exact: false }).click();
+  await page.getByRole('button', { name: 'Learners', exact: true }).click();
+  await page.getByRole('textbox', { name: 'Learner name' }).fill('恢复测试小朋友');
+  await page.getByRole('combobox', { name: 'Learning style' }).selectOption('child');
+  await page.getByRole('button', { name: 'Add learner' }).click();
+  await expect(page.getByRole('heading', { name: '一起学一点 日语。' })).toBeVisible();
+  const bootstrap = await (await page.request.get('/api/bootstrap')).json();
+  const child = bootstrap.profiles.find((value: { name: string }) => value.name === '恢复测试小朋友');
+  expect(child.explanationLanguage).toBe('zh');
+  expect(child.presentation).toBe('child');
+  await expect(page.getByRole('button', { name: '英语', exact: true })).toHaveCount(0);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth)).toBe(false);
+  if (process.env.TRILINGUO_RECOVERY_SCREENSHOTS) await page.screenshot({ path: `${process.env.TRILINGUO_RECOVERY_SCREENSHOTS}/child-phone.png`, fullPage: true });
+  await page.getByRole('button', { name: '我的笔记' }).click();
+  await expect(page.locator('.notebook-entry')).toHaveCount(0);
+  await page.getByRole('combobox', { name: '学习者' }).selectOption(profile.id);
+  await page.getByRole('button', { name: 'My notebook' }).click();
+  await expect(page.getByRole('heading', { name: 'Can I have some water, please?' })).toBeVisible();
+});
